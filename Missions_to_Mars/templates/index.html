@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+            {% for m in marsInfo%}
+    <h3>
+        Latest Mars News
+    </h3>
+    <strong>
+            {{m.latest_news.news_title}}
+    </strong><br>
+    {{m.latest_news.news_p}}
+    <h3>
+        Featured Mars Image
+    </h3>
+    <img src={{m.featured_image.feature_image}}>
+    <br>
+    <h4>
+        Current weather on Mars
+    </h4>
+        {{m.latest_twitt.latest_twitt}}
+    <h4>
+        Mars Facts
+    </h4>
+    <table border = 1>    
+        <tr>
+            <td> Equatorial Diameter: </td>
+            <td> {{ m.mars_facts['Equatorial Diameter:']}} </td>
+        </tr>
+        <tr>
+            <td> Polar Diameter: </td>
+            <td> {{ m.mars_facts['Polar Diameter:']}} </td>
+        </tr>
+        <tr>
+            <td> Mass: </td>
+            <td> {{ m.mars_facts['Mass:']}} </td>
+        </tr>
+        <tr>
+            <td> Moons: </td>
+            <td> {{ m.mars_facts['Moons:']}} </td>
+        </tr>
+        <tr>
+            <td> Orbit Distance: </td>
+            <td> {{ m.mars_facts['Orbit Distance:']}} </td>
+        </tr>        
+        <tr>
+            <td> Orbit Period: </td>
+            <td> {{ m.mars_facts['Orbit Period:']}} </td>
+        </tr>
+        <tr>
+            <td> Surface Temperature: </td>
+            <td> {{ m.mars_facts['Surface Temperature: ']}} </td>
+        </tr>
+        <tr>
+            <td> First Record: </td>
+            <td> {{ m.mars_facts['First Record:']}} </td>
+        </tr>        
+    </table>
+        <h2>
+            Mars hemisphere
+        </h2>
+        <div>
+            <img src={{m.hemisphere_images[0].img_url1}}>
+        </div>
+        <div>
+            Cerberus Hemisphere
+        </div>
+        <div>
+            <img src={{m.hemisphere_images[1].img_url1}}>
+        </div>
+        <div>
+            Schiaparelli Hemisphere
+        </div>
+        <div>
+            <img src={{m.hemisphere_images[2].img_url1}}>
+        </div>
+        <div>
+            Syrtis Major
+        </div>
+        <div>
+            <img src={{m.hemisphere_images[3].img_url1}}>
+        </div>
+        <div>
+           Valles Marineris
+        </div>        
+        {% endfor %}
+    </body>
+</html>
