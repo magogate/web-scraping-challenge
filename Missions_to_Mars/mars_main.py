@@ -13,8 +13,9 @@ app = Flask(__name__)
 def index():
     db = cliant.mission_mangal
     #db.movies.find() is a cursor and you can not pass that to html page
-    #so, we need to convert that to list
+    #so, we need to convert that to list    
     mars_info = list(db.mangal.find())    
+    print(len(mars_info))
     # flash(mars_info)
     return render_template("index.html", marsInfo=mars_info)  
 
@@ -22,9 +23,17 @@ def index():
 @app.route("/scrape")
 def getMarsData():
     db = cliant.mission_mangal
+    mars_info = list(db.mangal.find())
     mangal_info = scrape_mars.scrape()
-    db.mangal.insert_one(mangal_info)    
-    return mangal_info
+    if len(mars_info) < 1:
+        db.mangal.insert_one(mangal_info)
+    else:
+        # https://www.w3schools.com/python/python_mongodb_delete.asp
+        db.mangal.delete_many({})
+        db.mangal.insert_one(mangal_info)
+
+    mars_info = list(db.mangal.find())
+    return render_template("index.html", marsInfo=mars_info)
 
 
 if __name__ == "__main__":
