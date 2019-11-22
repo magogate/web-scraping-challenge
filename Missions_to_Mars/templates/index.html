@@ -1,92 +1,129 @@
 <!DOCTYPE html>
 
 <html>
-    <body>
-        <h1>
-            <a href="http://127.0.0.1:5000/scrape">Scrap Again</a>
-        </h1>
+    <head>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>        
+        <div class="container" style="background-color: seashell; text-align: center; padding-top: 7%; padding-bottom: 5%;">
+            <h1 style="font-size: 300%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Mission to Mars</h1>
+            <a href="http://127.0.0.1:5000/scrape"><button type="button" class="btn btn-sm btn-primary">Scrap New Data</button></a>        
+        </div>
+        <div class="container">
+            {% for m in marsInfo%}            
+            <div><span style="font-size: 140%;font-family: Arial, Helvetica, sans-serif;"><strong>Latest Mars News</strong></span></div>
+            <strong style="font-family: Arial, Helvetica, sans-serif;">{{m.latest_news.news_title}}</strong>
+            <br>
+            <span style="font-size: 80%;font-family: Arial, Helvetica, sans-serif;">{{m.latest_news.news_p}}</span>
+            <br>
+            <br>
+            <div><span style="font-size: 140%;font-family: Arial, Helvetica, sans-serif;"><strong>Featured Mars Image</strong></span></div>
+            <div style="display: flex; justify-content: space-between">
+                </h3>
+                <img src={{m.featured_image.feature_image}}>
+                <div>
+                    <div style="border: aliceblue; border-style: solid; margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;">
+                        <span style="font-size: 90%;"><strong>Current Weather On Mars</strong></span>
+                        <br>
+                        <span style="font-size: 90%;">{{m.latest_twitt.latest_twitt}}</span>
+                    </div>
+                    <br>
+                    <div style="margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;">
+                        <span style="font-size: 90%;"><strong>Mars Facts</strong></span>
+                        <table border = 1 style="font-size: 80%; font-weight: 600;">
+                                <tr>
+                                    <td> Equatorial Diameter: </td>
+                                    <td> {{ m.mars_facts['Equatorial Diameter:']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Polar Diameter: </td>
+                                    <td> {{ m.mars_facts['Polar Diameter:']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Mass: </td>
+                                    <td> {{ m.mars_facts['Mass:']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Moons: </td>
+                                    <td> {{ m.mars_facts['Moons:']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Orbit Distance: </td>
+                                    <td> {{ m.mars_facts['Orbit Distance:']}} </td>
+                                </tr>        
+                                <tr>
+                                    <td> Orbit Period: </td>
+                                    <td> {{ m.mars_facts['Orbit Period:']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Surface Temperature: </td>
+                                    <td> {{ m.mars_facts['Surface Temperature: ']}} </td>
+                                </tr>
+                                <tr>
+                                    <td> First Record: </td>
+                                    <td> {{ m.mars_facts['First Record:']}} </td>
+                                </tr>        
+                        </table>
+                    </div>
+                </div>                    
+            </div>
+            <div>
+                <hr style="background-color: seashell; text-align: center; padding-top: 0.5%;">
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <span style="font-size: 150%;"><strong>Mars Hemispheres</strong></span>
+            </div>
+            <div>
+                <hr style="background-color: seashell; text-align: center; padding-bottom: 0.5%;">
+            </div>
+            <div style="display: flex; justify-content: space-between; font-family: Arial, Helvetica, sans-serif;">
+                <div style="border-style: groove; border-width: thin; margin-left: 8%;">
+                    <div>
+                        <img src={{m.hemisphere_images[0].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 120%; font-weight: 600;">Cerberus Hemisphere Enhanced</span>
+                    </div>
+                </div>
+                <div style="border-style: groove; border-width: thin; margin-right: 8%;">
+                    <div>
+                        <img src={{m.hemisphere_images[1].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 120%; font-weight: 600;">Schiaparelli Hemisphere Enhanced</span>
+                    </div>            
+                </div>
+            </div>
+            <br>
+            <div style="display: flex; justify-content: space-between">
+                <div style="border-style: groove; border-width: thin; margin-left: 8%;">
+                    <div>
+                        <img src={{m.hemisphere_images[2].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 120%; font-weight: 600;">Syrtis Major Hemisphere Enhanced</span>
+                    </div>
+                </div>
+                <div style="border-style: groove; border-width: thin; margin-right: 8%;">
+                    <div>
+                        <img src={{m.hemisphere_images[3].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 120%; font-weight: 600;">Valles Marineris Hemisphere Enhanced</span>
+                    </div>            
+                </div>
+            </div>
+            <div>
+                <hr style="background-color: seashell; text-align: center; padding-top: 5%;">
+            </div>
+        </div>
+        
+        
 
-            {% for m in marsInfo%}
-    <h3>
-        Latest Mars News
-    </h3>
-    <strong>
-            {{m.latest_news.news_title}}
-    </strong><br>
-    {{m.latest_news.news_p}}
-    <h3>
-        Featured Mars Image
-    </h3>
-    <img src={{m.featured_image.feature_image}}>
-    <br>
-    <h4>
-        Current weather on Mars
-    </h4>
-        {{m.latest_twitt.latest_twitt}}
-    <h4>
-        Mars Facts
-    </h4>
-    <table border = 1>    
-        <tr>
-            <td> Equatorial Diameter: </td>
-            <td> {{ m.mars_facts['Equatorial Diameter:']}} </td>
-        </tr>
-        <tr>
-            <td> Polar Diameter: </td>
-            <td> {{ m.mars_facts['Polar Diameter:']}} </td>
-        </tr>
-        <tr>
-            <td> Mass: </td>
-            <td> {{ m.mars_facts['Mass:']}} </td>
-        </tr>
-        <tr>
-            <td> Moons: </td>
-            <td> {{ m.mars_facts['Moons:']}} </td>
-        </tr>
-        <tr>
-            <td> Orbit Distance: </td>
-            <td> {{ m.mars_facts['Orbit Distance:']}} </td>
-        </tr>        
-        <tr>
-            <td> Orbit Period: </td>
-            <td> {{ m.mars_facts['Orbit Period:']}} </td>
-        </tr>
-        <tr>
-            <td> Surface Temperature: </td>
-            <td> {{ m.mars_facts['Surface Temperature: ']}} </td>
-        </tr>
-        <tr>
-            <td> First Record: </td>
-            <td> {{ m.mars_facts['First Record:']}} </td>
-        </tr>        
-    </table>
-        <h2>
-            Mars hemisphere
-        </h2>
-        <div>
-            <img src={{m.hemisphere_images[0].img_url1}}>
-        </div>
-        <div>
-            Cerberus Hemisphere
-        </div>
-        <div>
-            <img src={{m.hemisphere_images[1].img_url1}}>
-        </div>
-        <div>
-            Schiaparelli Hemisphere
-        </div>
-        <div>
-            <img src={{m.hemisphere_images[2].img_url1}}>
-        </div>
-        <div>
-            Syrtis Major
-        </div>
-        <div>
-            <img src={{m.hemisphere_images[3].img_url1}}>
-        </div>
-        <div>
-           Valles Marineris
-        </div>        
         {% endfor %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -6,8 +6,9 @@ from flask import Flask, jsonify, render_template, flash
 
 cliant = pymongo.MongoClient("mongodb://localhost:27017")
 
-# https://stackoverflow.com/questions/35309042/python-how-to-set-global-variables-in-flask
-app = Flask(__name__)
+# https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
+# https://stackoverflow.com/questions/22259847/application-not-picking-up-css-file-flask-python
+app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
 def index():
