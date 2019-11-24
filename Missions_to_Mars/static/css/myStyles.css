@@ -1,0 +1,32 @@
+h1{
+    font-size: 400%; 
+    font-family: 'Calistoga', cursive;
+  }
+  .headerSpacing{
+    background-color: seashell; 
+    text-align: center; 
+    padding-top: 7%; 
+    padding-bottom: 5%;
+  }
+  .marsNews{                
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .fontSize140{
+    font-size: 140%;
+  }
+  .fontSize80{
+    font-size: 80%;
+  }
+  .fontSize90{
+    font-size: 90%;
+  }
+  .imageAndFactsSection{
+    display: flex; 
+    justify-content: space-between
+  }
+  .imageSpacing{
+    border: aliceblue; border-style: solid; margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;
+  }
+  .factTableSpacing{
+    margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;
+  }

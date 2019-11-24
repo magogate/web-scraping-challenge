@@ -3,33 +3,36 @@
 <html>
     <head>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+          <link href="/static/css/myStyles.css" rel="stylesheet">          
     </head>
     <body>        
-        <div class="container" style="background-color: seashell; text-align: center; padding-top: 7%; padding-bottom: 5%;">
-            <h1 style="font-size: 300%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Mission to Mars</h1>
+        <div class="container headerSpacing">
+            <h1> Mission to Mars</h1>
             <a href="http://127.0.0.1:5000/scrape"><button type="button" class="btn btn-sm btn-primary">Scrap New Data</button></a>        
         </div>
         <div class="container">
             {% for m in marsInfo%}            
-            <div><span style="font-size: 140%;font-family: Arial, Helvetica, sans-serif;"><strong>Latest Mars News</strong></span></div>
-            <strong style="font-family: Arial, Helvetica, sans-serif;">{{m.latest_news.news_title}}</strong>
+            <div><span class="marsNews fontSize140"><strong>Latest Mars News</strong></span></div>
+            <strong class="marsNews">{{m.latest_news.news_title}}</strong>
             <br>
-            <span style="font-size: 80%;font-family: Arial, Helvetica, sans-serif;">{{m.latest_news.news_p}}</span>
+            <span class="marsNews fontSize80">{{m.latest_news.news_p}}</span>
             <br>
             <br>
-            <div><span style="font-size: 140%;font-family: Arial, Helvetica, sans-serif;"><strong>Featured Mars Image</strong></span></div>
-            <div style="display: flex; justify-content: space-between">
+            <div><span class="marsNews fontSize140"><strong>Featured Mars Image</strong></span></div>
+            <div class="imageAndFactsSection">
                 </h3>
                 <img src={{m.featured_image.feature_image}}>
                 <div>
-                    <div style="border: aliceblue; border-style: solid; margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;">
-                        <span style="font-size: 90%;"><strong>Current Weather On Mars</strong></span>
+                    <div class="imageSpacing">
+                        <span class="fontSize90"><strong>Current Weather On Mars</strong></span>
                         <br>
-                        <span style="font-size: 90%;">{{m.latest_twitt.latest_twitt}}</span>
+                        <span class="fontSize90">{{m.latest_twitt.latest_twitt}}</span>
                     </div>
                     <br>
-                    <div style="margin-left: 5%; padding-left: 2%; padding-top: 2%; padding-bottom: 2%;">
-                        <span style="font-size: 90%;"><strong>Mars Facts</strong></span>
+                    <div class="factTableSpacing">
+                        <span class="fontSize90"><strong>Mars Facts</strong></span>
                         <table border = 1 style="font-size: 80%; font-weight: 600;">
                                 <tr>
                                     <td> Equatorial Diameter: </td>
@@ -77,13 +80,13 @@
             <div>
                 <hr style="background-color: seashell; text-align: center; padding-bottom: 0.5%;">
             </div>
-            <div style="display: flex; justify-content: space-between; font-family: Arial, Helvetica, sans-serif;">
+            <div class="imageAndFactsSection" style="font-family: Arial, Helvetica, sans-serif;">
                 <div style="border-style: groove; border-width: thin; margin-left: 8%;">
                     <div>
                         <img src={{m.hemisphere_images[0].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
                     </div>
                     <div style="text-align: center;">
-                        <span style="font-size: 120%; font-weight: 600;">Cerberus Hemisphere Enhanced</span>
+                        <span style="font-size: 120%; font-weight: 600; font-family: 'Pacifico', cursive">Cerberus Hemisphere Enhanced</span>
                     </div>
                 </div>
                 <div style="border-style: groove; border-width: thin; margin-right: 8%;">
@@ -91,18 +94,18 @@
                         <img src={{m.hemisphere_images[1].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
                     </div>
                     <div style="text-align: center;">
-                        <span style="font-size: 120%; font-weight: 600;">Schiaparelli Hemisphere Enhanced</span>
+                        <span style="font-size: 120%; font-weight: 600; font-family: 'Pacifico', cursive">Schiaparelli Hemisphere Enhanced</span>
                     </div>            
                 </div>
             </div>
             <br>
-            <div style="display: flex; justify-content: space-between">
+            <div class="imageAndFactsSection">
                 <div style="border-style: groove; border-width: thin; margin-left: 8%;">
                     <div>
                         <img src={{m.hemisphere_images[2].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
                     </div>
                     <div style="text-align: center;">
-                        <span style="font-size: 120%; font-weight: 600;">Syrtis Major Hemisphere Enhanced</span>
+                        <span style="font-size: 120%; font-weight: 600; font-family: 'Pacifico', cursive">Syrtis Major Hemisphere Enhanced</span>
                     </div>
                 </div>
                 <div style="border-style: groove; border-width: thin; margin-right: 8%;">
@@ -110,7 +113,7 @@
                         <img src={{m.hemisphere_images[3].img_url1}} width="450px" height="450px" style="padding-left: 0.3%; padding-right: 0.3%; padding-top: 0.3%; padding-bottom: 0.3%;">
                     </div>
                     <div style="text-align: center;">
-                        <span style="font-size: 120%; font-weight: 600;">Valles Marineris Hemisphere Enhanced</span>
+                        <span style="font-size: 120%; font-weight: 600; font-family: 'Pacifico', cursive">Valles Marineris Hemisphere Enhanced</span>
                     </div>            
                 </div>
             </div>
